@@ -64,17 +64,11 @@ public class DynamicGenerator {
         String templateName = new File(inputpath).getName();
         Template template = configuration.getTemplate(templateName);
 
-        //定义数据模型
-        MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
-        mainTemplateConfig.setAuthor("xy");
-        mainTemplateConfig.setOutputText("结果：");
-        mainTemplateConfig.setLoop(true);
-
         //指定生成文件
 
         Writer out = new FileWriter(outputpath);
         //调用模板生成文件
-        template.process(mainTemplateConfig, out);
+        template.process(model, out);
         //生成文件后别忘了关闭哦
         out.close();
 
