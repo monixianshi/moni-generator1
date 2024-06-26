@@ -11,7 +11,7 @@
 </ul>
 <#--底部版权信息（注释部分，不会被输出）-->
 <footer>
-    ${ currentYear}鱼皮官网．All rights reserved.
+    ${ currentYear}xy官网.All rights reserved.
 </footer>
 </body>
 </html>
