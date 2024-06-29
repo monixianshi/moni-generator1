@@ -25,6 +25,9 @@ public class FileGenerator {
     }
 
     public static void doGenerator(Object model) throws TemplateException, IOException {
+
+
+
         //静态生成
         //获取项目根目录
         String projectPath = System.getProperty("user.dir");
