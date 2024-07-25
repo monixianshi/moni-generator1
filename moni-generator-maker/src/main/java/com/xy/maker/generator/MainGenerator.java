@@ -20,7 +20,7 @@ import java.io.IOException;
  **/
 
 public class MainGenerator {
-    public static void main(String[] args) throws TemplateException, IOException {
+    public static void main(String[] args) throws TemplateException, IOException, InterruptedException {
         //获取JSON转化后的对象
         Meta meta = MetaManager.getMetaObject();
         System.out.println(meta);
@@ -55,8 +55,8 @@ public class MainGenerator {
         DynamicFileGenerator.doGenerator(inputFilePath,outputFiletPath,meta);
 
         //生成cli/commandExecutor.java
-        inputFilePath = inputResourcePath + File.separator + "templates/java/cli/commandExecutor.java.ftl";
-        outputFiletPath = outputBaseJavaPackagePath + File.separator + "cli/commandExecutor.java";
+        inputFilePath = inputResourcePath + File.separator + "templates/java/cli/CommandExecutor.java.ftl";
+        outputFiletPath = outputBaseJavaPackagePath + File.separator + "cli/CommandExecutor.java";
         DynamicFileGenerator.doGenerator(inputFilePath,outputFiletPath,meta);
 
         //生成cli/command/ConfigCommand.java
@@ -93,5 +93,21 @@ public class MainGenerator {
         inputFilePath = inputResourcePath + File.separator + "templates/java/generator/StaticGenerator.java.ftl";
         outputFiletPath = outputBaseJavaPackagePath + File.separator + "generator/StaticGenerator.java";
         DynamicFileGenerator.doGenerator(inputFilePath,outputFiletPath,meta);
+
+        //生成pom.xml
+        inputFilePath = inputResourcePath + File.separator + "templates/pom.xml.ftl";
+        outputFiletPath = outputPath + File.separator + "pom.xml";
+        DynamicFileGenerator.doGenerator(inputFilePath,outputFiletPath,meta);
+
+        //执行打包
+        JarGenerator.doGenerator(outputPath);
+
+        //封装脚本
+        String shellOutputFilePath = outputPath + File.separator + "generator";
+        String jarName = String.format("%s-%s-jar-with-dependencies.jar",meta.getName(),meta.getVersion());
+        String jarPath = "target/"+jarName;
+        ScriptGenerator.doGenerator(shellOutputFilePath,jarPath);
+
+
     }
 }

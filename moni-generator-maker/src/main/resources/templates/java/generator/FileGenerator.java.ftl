@@ -20,15 +20,15 @@ public class FileGenerator {
         String outputPath;
 <#list fileConfig.files as fileInfo>
         //获取输入路径
-        inputPath = new File(inputPath,"${fileInfo.inputPath}").getAbsolutePath();
+        inputPath = new File(inputRootPath,"${fileInfo.inputPath}").getAbsolutePath();
         //获取输出路径
-        outputPath = new File(outputPath,"${fileInfo.outputPath}").getAbsolutePath();
+        outputPath = new File(outputRootPath,"${fileInfo.outputPath}").getAbsolutePath();
     <#if fileInfo.generateType == "static">
         //静态生成
-        StaticFileGenerator.copyFilesByHutool(inputPath,outputPath);
+        StaticGenerator.copyFilesByHutool(inputPath,outputPath);
     <#else>
         //动态生成
-        DynamicFileGenerator.doGenerator(dynamicInputPath,dynamicOutputPath,model);
+        DynamicGenerator.doGenerator(inputPath,outputPath,model);
     </#if>
 </#list>
 

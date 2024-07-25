@@ -1,7 +1,7 @@
 package ${basePackage}.cli.command;
 
 import cn.hutool.core.bean.BeanUtil;
-import ${basePackage}.generator.file.FileGenerator;
+import ${basePackage}.generator.FileGenerator;
 
 import ${basePackage}.model.DataModel;
 import lombok.Data;

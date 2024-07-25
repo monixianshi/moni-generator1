@@ -6,7 +6,7 @@
   "author": "xy",
   "createTime": "2024-06-26",
   "fileConfig": {
-    "inputRootPath": "/Users/java2/moni-generator/moni-generator-demo-project/acm-template-pro",
+    "inputRootPath": "E:/java2/moni-generator/moni-generator-demo-project/acm-template-pro",
     "outputRootPath": "generated",
     "type": "dir",
     "files": [

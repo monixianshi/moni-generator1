@@ -1,4 +1,4 @@
-package${basePackage}.cli;
+package ${basePackage}.cli;
 
 import ${basePackage}.cli.command.ConfigCommand;
 import ${basePackage}.cli.command.GenerateCommand;

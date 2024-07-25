@@ -1,4 +1,4 @@
-package ${basePackage}.maker.model;
+package ${basePackage}.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
